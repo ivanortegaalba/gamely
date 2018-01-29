@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button/> Button default renders without crashing 1`] = `
+.c0 {
+  background-color: #fff;
+  border: 1px solid #41474c;
+  border-radius: 0.125rem;
+  color: #59636b;
+  cursor: pointer;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  padding: 0.6875rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.c0:hover {
+  background-color: #fff;
+  border-color: #23272a;
+  color: #23272a;
+}
+
+.c0:active,
+.c0:focus {
+  border-color: #59636b;
+  outline: none;
+}
+
+.c0[disabled],
+.c0[disabled]:hover {
+  background-color: #fff;
+  border-color: #59636b;
+  color: #59636b;
+  cursor: inherit;
+}
+
+<button
+  className="c0"
+  size="m"
+>
+   Button 
+</button>
+`;
+
+exports[`<Button/> Button with custom color renders without crashing 1`] = `
+.c0 {
+  background-color: #fff;
+  border: 1px solid #00a5c9;
+  border-radius: 0.125rem;
+  color: #43caea;
+  cursor: pointer;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  padding: 0.6875rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.c0:hover {
+  background-color: #fff;
+  border-color: #008aab;
+  color: #008aab;
+}
+
+.c0:active,
+.c0:focus {
+  border-color: #43caea;
+  outline: none;
+}
+
+.c0[disabled],
+.c0[disabled]:hover {
+  background-color: #fff;
+  border-color: #43caea;
+  color: #43caea;
+  cursor: inherit;
+}
+
+<button
+  className="c0"
+  size="m"
+>
+  Button
+</button>
+`;

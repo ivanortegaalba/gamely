@@ -1,0 +1,29 @@
+@import '~sanitize.css';
+
+// Settings
+@import 'settings/colors';
+@import 'settings/fonts';
+
+// Tools
+@import 'tools/functions';
+
+// Components
+@import 'components/button';
+@import 'components/input';
+@import 'components/badge';
+@import 'components/table-list';
+@import 'components/form-control';
+@import 'components/header';
+
+// Elements
+@import 'elements/headings';
+
+// Objects
+@import 'objects/grid';
+@import 'objects/spacing';
+@import 'objects/flex';
+
+body {
+  font-family: $base-font-family;
+  -webkit-font-smoothing: antialiased;
+}

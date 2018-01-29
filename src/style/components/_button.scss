@@ -1,0 +1,63 @@
+$btn-padding: px2rems(11px) px2rems(16px);
+$btn-padding-s: px2rems(7px);
+$btn-padding-l: px2rems(11px) px2rems(23px);
+$btn-radius: 2px;
+
+.btn {
+  background-color: $color-white;
+  border: 1px solid $color-dark-2;
+  border-radius: px2rems($btn-radius);
+  color: $color-dark-3;
+  cursor: pointer;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  padding: $btn-padding;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $color-white;
+    border-color: $color-dark-1;
+    color: $color-dark-1;
+  }
+
+  &:active,
+  &:focus {
+    border-color: $color-dark-3;
+    outline: none;
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background-color: $color-white;
+    border-color: $color-light-3;
+    color: $color-light-3;
+    cursor: inherit;
+  }
+}
+
+.btn--primary {
+  background-color: $color-blue-2;
+  border-color: $color-blue-2;
+  color: $color-white;
+
+  &:hover {
+    background-color: $color-blue-1;
+    border-color: $color-blue-1;
+    color: $color-white;
+  }
+
+  &:active,
+  &:focus {
+    border-color: $color-blue-1;
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background-color: $color-light-3;
+    border-color: $color-light-3;
+    color: $color-white;
+  }
+}
+

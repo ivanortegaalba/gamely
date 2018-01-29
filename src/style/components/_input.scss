@@ -1,0 +1,37 @@
+$input-radius: 2px;
+$input-padding: px2rems(11px);
+
+.input {
+  width: 100%;
+  border-radius: px2rems($input-radius);
+  border: 1px solid $color-light-3;
+  background-color: $color-white;
+  padding: $input-padding;
+  font-weight: 400;
+  font-size: px2rems(13px);
+  color: $color-dark-3;
+
+  &::placeholder {
+    color: $color-light-1;
+  }
+
+  &:focus {
+    border: 1px solid $color-blue-2;
+    outline: none;
+  }
+
+  &:active {
+    border-color: $color-blue-2;
+    color: $color-dark-3;
+  }
+
+  &:disabled {
+    border-color: $color-light-4;
+    color: $color-light-3;
+  }
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: px2rems(7px);
+}

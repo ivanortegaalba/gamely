@@ -1,0 +1,10 @@
+$container-max-width: px2rems(1200px);
+$gutter-width: px2rems(40px);
+
+.container {
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
+  margin: 0 auto;
+  width: 100%;
+  max-width: $container-max-width;
+}
