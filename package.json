@@ -2,6 +2,7 @@
   "name": "gamery",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ivanortegaalba.github.io/gamely/build/",
   "dependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -35,7 +36,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint:css": "stylelint './src/**/*.js'"
+    "lint:css": "stylelint './src/**/*.js'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "snapshotSerializers": [
