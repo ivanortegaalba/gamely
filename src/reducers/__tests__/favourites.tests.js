@@ -1,5 +1,5 @@
 import favourites from '../favourites'
-import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from '../../constants/ActionTypes'
+import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from '../../actions/ActionTypes'
 
 describe('reducers', () => {
   describe('favourites', () => {
@@ -10,30 +10,30 @@ describe('reducers', () => {
     })
 
     describe('when a game is already favourite', () => {
-      const gameId = 1
-      const state = [gameId]
+      const shortName = 'gameshortname'
+      const state = [shortName]
 
       it('should handle ADD_TO_FAVOURITES action', () => {
-        expect(favourites(state, { type: 'ADD_TO_FAVOURITES', gameId })).toEqual([gameId])
+        expect(favourites(state, { type: 'ADD_TO_FAVOURITES', shortName })).toEqual([shortName])
       })
 
       it('should handle REMOVE_FROM_FAVOURITES action', () => {
-        const gameId = 1
-        expect(favourites([gameId], { type: 'REMOVE_FROM_FAVOURITES', gameId })).toEqual([])
+        const shortName = 1
+        expect(favourites([shortName], { type: 'REMOVE_FROM_FAVOURITES', shortName })).toEqual([])
       })
 
     })
 
     describe('when a game is not favourite', () => {
       it('should handle ADD_TO_FAVOURITE action', () => {
-        const gameId = 1
-        expect(favourites([], { type: 'ADD_TO_FAVOURITES', gameId })).toEqual([gameId])
+        const shortName = 1
+        expect(favourites([], { type: 'ADD_TO_FAVOURITES', shortName })).toEqual([shortName])
       })
 
       it('should handle REMOVE_FROM_FAVOURITES action', () => {
-        const gameId = 1
+        const shortName = 1
         const state = []
-        expect(favourites(state, { type: 'REMOVE_FROM_FAVOURITES', gameId })).toEqual([])
+        expect(favourites(state, { type: 'REMOVE_FROM_FAVOURITES', shortName })).toEqual([])
       })
     })
   })

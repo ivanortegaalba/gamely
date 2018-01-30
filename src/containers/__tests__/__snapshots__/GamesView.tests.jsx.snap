@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GamesContainer /> init should pass connect the necessary props 1`] = `
+Object {
+  "addToFavourites": [Function],
+  "favourites": Array [],
+  "fetchGames": [Function],
+  "filterBy": "",
+  "filterGameBy": [Function],
+  "games": Array [],
+  "removeFromFavourites": [Function],
+}
+`;
+
+exports[`<GamesContainer /> init should render correctly 1`] = `
+<GamesContainer
+  addToFavourites={[Function]}
+  favourites={Array []}
+  fetchGames={[Function]}
+  filterBy=""
+  filterGameBy={[Function]}
+  games={Array []}
+  removeFromFavourites={[Function]}
+/>
+`;

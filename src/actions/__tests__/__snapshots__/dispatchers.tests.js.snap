@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dispatchers addToFavourites the game is not in favourites yet should dispatch the action to save a game as favourite 1`] = `
+Array [
+  Object {
+    "shortName": "eightballpool",
+    "type": "ADD_TO_FAVOURITES",
+  },
+]
+`;
+
+exports[`dispatchers fetchGames should dispatch the api call action to fetch games 1`] = `
+Array [
+  Object {
+    "Call API": Object {
+      "endpoint": "/resources/games.json",
+      "schema": ArraySchema {
+        "schema": EntitySchema {
+          "_getId": [Function],
+          "_idAttribute": "short",
+          "_key": "games",
+          "_mergeStrategy": [Function],
+          "_processStrategy": [Function],
+          "schema": Object {},
+        },
+      },
+      "types": Array [
+        "GAMES_REQUEST",
+        "GAMES_SUCCESS",
+        "GAMES_FAILURE",
+      ],
+    },
+  },
+]
+`;
+
+exports[`dispatchers filterGamesBy should dispatch the action to change the filter value at the store 1`] = `
+Array [
+  Object {
+    "filterBy": "e",
+    "type": "FILTER_BY",
+  },
+]
+`;
+
+exports[`dispatchers removeFromFavourites the game is in favourites should dispatch the action to remove a game as favourite 1`] = `
+Array [
+  Object {
+    "shortName": "eightballpool",
+    "type": "REMOVE_FROM_FAVOURITES",
+  },
+]
+`;

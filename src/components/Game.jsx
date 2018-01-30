@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from '../PropTypes'
-import { Button, H2, H3 } from '../style/styled-components'
+import { Button } from '../style/styled-components'
 import { GAME_LIBRARY_URL } from '../constants'
 
 export function Game ({ game, addToFavourites, removeFromFavourites }) {
@@ -21,23 +21,29 @@ export function Game ({ game, addToFavourites, removeFromFavourites }) {
     </figure>
     <footer>
       {game.isFavourite ? <Button
+          dataSpec={'remove-button'}
           palette={'danger'}
           size={'s'}
           onClick={onClickFavourite}
-          margin={'0 3px'}
+          marginRight={'s'}
           reverse>
           Remove
         </Button>
         : <Button
+          dataSpec={'save-button'}
           palette={'primary'}
           size={'s'}
           onClick={onClickFavourite}
-          margin={'0 3px'}
+          marginRight={'s'}
         >
           Save
         </Button>}
       <a href={getGameURL(game)}>
-        <Button size={'s'} margin={'0 3px'} reverse={true}>
+        <Button
+          dataSpec={'play-button'}
+          size={'s'}
+          marginLeft={'s'}
+          reverse={true}>
           Play
         </Button>
       </a>
@@ -46,7 +52,9 @@ export function Game ({ game, addToFavourites, removeFromFavourites }) {
 }
 
 Game.propTypes = {
-  game: PropTypes.game.isRequired
+  game: PropTypes.game.isRequired,
+  addToFavourites: PropTypes.func.isRequired,
+  removeFromFavourites: PropTypes.func.isRequired
 }
 Game.defaultProps = {}
 

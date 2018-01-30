@@ -6,8 +6,7 @@ import localStorage from '../middleware/localStorage'
 import { createLogger } from 'redux-logger'
 
 export default function configureStore (initialState) {
-
-  if (process.env.NODE_ENV === 'production') {
+  if (['production', 'test'].indexOf(process.env.NODE_ENV) !== -1) {
     return createStore(rootReducer, initialState, compose(applyMiddleware(thunk, api, localStorage)))
   } else {
     return createStore(rootReducer, initialState, compose(applyMiddleware(thunk, api, localStorage, createLogger())))

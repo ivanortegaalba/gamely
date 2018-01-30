@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Game/> represent a favourite game should render correctly 1`] = `
+<article>
+  <figure>
+    <img
+      alt="The Pulpit Rock"
+      height="60"
+      src="http://royal1.midasplayer.com//images/games/eightballpool/eightballpool_60x60.gif"
+      width="60"
+    />
+    <figcaption>
+      8-Ball Pool
+    </figcaption>
+  </figure>
+  <footer>
+    <styled.button
+      dataSpec="remove-button"
+      margin="0"
+      marginRight="s"
+      onClick={[Function]}
+      palette="danger"
+      reverse={true}
+      size="s"
+    >
+      Remove
+    </styled.button>
+    <a
+      href="http://royal1.midasplayer.com//spel/sportspel/8-ball-pool/?language=sv"
+    >
+      <styled.button
+        dataSpec="play-button"
+        margin="0"
+        marginLeft="s"
+        palette="default"
+        reverse={true}
+        size="s"
+      >
+        Play
+      </styled.button>
+    </a>
+  </footer>
+</article>
+`;
+
+exports[`<Game/> represent a no favourite game should render correctly 1`] = `
+<article>
+  <figure>
+    <img
+      alt="The Pulpit Rock"
+      height="60"
+      src="http://royal1.midasplayer.com//images/games/eightballpool/eightballpool_60x60.gif"
+      width="60"
+    />
+    <figcaption>
+      8-Ball Pool
+    </figcaption>
+  </figure>
+  <footer>
+    <styled.button
+      dataSpec="save-button"
+      margin="0"
+      marginRight="s"
+      onClick={[Function]}
+      palette="primary"
+      reverse={false}
+      size="s"
+    >
+      Save
+    </styled.button>
+    <a
+      href="http://royal1.midasplayer.com//spel/sportspel/8-ball-pool/?language=sv"
+    >
+      <styled.button
+        dataSpec="play-button"
+        margin="0"
+        marginLeft="s"
+        palette="default"
+        reverse={true}
+        size="s"
+      >
+        Play
+      </styled.button>
+    </a>
+  </footer>
+</article>
+`;

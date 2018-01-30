@@ -10,3 +10,13 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 
+// Mock localStorage
+const localStorageMock = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  clear: jest.fn()
+}
+global.localStorage = localStorageMock
+
+// Mock fetch
+global.fetch = require('jest-fetch-mock')

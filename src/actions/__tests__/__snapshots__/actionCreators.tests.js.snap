@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actionCreators addToFavouritesUnsafe should return an action with a the game short name 1`] = `
+Object {
+  "shortName": "eightballpool",
+  "type": "ADD_TO_FAVOURITES",
+}
+`;
+
+exports[`actionCreators fetchGames should return a call api action 1`] = `
+Object {
+  "Call API": Object {
+    "endpoint": "/resources/games.json",
+    "schema": ArraySchema {
+      "schema": EntitySchema {
+        "_getId": [Function],
+        "_idAttribute": "short",
+        "_key": "games",
+        "_mergeStrategy": [Function],
+        "_processStrategy": [Function],
+        "schema": Object {},
+      },
+    },
+    "types": Array [
+      "GAMES_REQUEST",
+      "GAMES_SUCCESS",
+      "GAMES_FAILURE",
+    ],
+  },
+}
+`;
+
+exports[`actionCreators filterGamesBy should return an action with the value which will be used to filter 1`] = `
+Object {
+  "filterBy": "8-Ball Pool",
+  "type": "FILTER_BY",
+}
+`;
+
+exports[`actionCreators removeFromFavouritesUnsafe should return an action with a the game short name 1`] = `
+Object {
+  "shortName": "eightballpool",
+  "type": "REMOVE_FROM_FAVOURITES",
+}
+`;

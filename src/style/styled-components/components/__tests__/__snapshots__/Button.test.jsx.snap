@@ -2,10 +2,10 @@
 
 exports[`<Button/> Button default renders without crashing 1`] = `
 .c0 {
-  background-color: #fff;
+  background-color: #41474c;
   border: 1px solid #41474c;
   border-radius: 0.125rem;
-  color: #59636b;
+  color: #fff;
   cursor: pointer;
   font-variant: all-small-caps;
   font-weight: 600;
@@ -13,6 +13,7 @@ exports[`<Button/> Button default renders without crashing 1`] = `
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .c0:hover {
@@ -45,10 +46,10 @@ exports[`<Button/> Button default renders without crashing 1`] = `
 
 exports[`<Button/> Button with custom color renders without crashing 1`] = `
 .c0 {
-  background-color: #fff;
+  background-color: #00a5c9;
   border: 1px solid #00a5c9;
   border-radius: 0.125rem;
-  color: #43caea;
+  color: #fff;
   cursor: pointer;
   font-variant: all-small-caps;
   font-weight: 600;
@@ -56,6 +57,7 @@ exports[`<Button/> Button with custom color renders without crashing 1`] = `
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .c0:hover {
@@ -81,6 +83,98 @@ exports[`<Button/> Button with custom color renders without crashing 1`] = `
 <button
   className="c0"
   size="m"
+>
+  Button
+</button>
+`;
+
+exports[`<Button/> Button with custom margin renders without crashing 1`] = `
+.c0 {
+  background-color: #41474c;
+  border: 1px solid #41474c;
+  border-radius: 0.125rem;
+  color: #fff;
+  cursor: pointer;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  padding: 0.6875rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: 1.4375rem;
+  margin-right: 1.4375rem;
+  margin-top: 1.4375rem;
+  margin-bottom: 1.4375rem;
+  margin: 1rem;
+}
+
+.c0:hover {
+  background-color: #fff;
+  border-color: #23272a;
+  color: #23272a;
+}
+
+.c0:active,
+.c0:focus {
+  border-color: #59636b;
+  outline: none;
+}
+
+.c0[disabled],
+.c0[disabled]:hover {
+  background-color: #fff;
+  border-color: #59636b;
+  color: #59636b;
+  cursor: inherit;
+}
+
+<button
+  className="c0"
+  size="m"
+>
+  Button
+</button>
+`;
+
+exports[`<Button/> Button with custom size renders without crashing 1`] = `
+.c0 {
+  background-color: #41474c;
+  border: 1px solid #41474c;
+  border-radius: 0.125rem;
+  color: #fff;
+  cursor: pointer;
+  font-variant: all-small-caps;
+  font-weight: 600;
+  padding: 0.6875rem 1.4375rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.c0:hover {
+  background-color: #fff;
+  border-color: #23272a;
+  color: #23272a;
+}
+
+.c0:active,
+.c0:focus {
+  border-color: #59636b;
+  outline: none;
+}
+
+.c0[disabled],
+.c0[disabled]:hover {
+  background-color: #fff;
+  border-color: #59636b;
+  color: #59636b;
+  cursor: inherit;
+}
+
+<button
+  className="c0"
+  size="l"
 >
   Button
 </button>

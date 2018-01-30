@@ -1,4 +1,4 @@
-import { FILTER_BY } from '../constants/ActionTypes'
+import { FILTER_BY } from '../actions/ActionTypes'
 
 const initialState = ''
 

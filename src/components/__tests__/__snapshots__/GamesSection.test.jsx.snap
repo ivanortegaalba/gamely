@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GamesSection /> has many games should render correctly 1`] = `
+<section>
+  <styled.header
+    palette="light"
+  >
+    <h1 />
+  </styled.header>
+  <styled.button
+    dataSpec="see-more-button"
+    margin="m"
+    onClick={[Function]}
+    palette="default"
+    reverse={false}
+    size="m"
+  >
+    Show all
+  </styled.button>
+  <GameList
+    addToFavourites={[Function]}
+    defaultOpen={false}
+    games={
+      Array [
+        Object {
+          "hasBoosters": false,
+          "isFavourite": true,
+          "name": "8-Ball Pool",
+          "short": "eightballpool",
+          "tags": "",
+          "url": "/spel/sportspel/8-ball-pool/?language=sv",
+        },
+        Object {
+          "hasBoosters": false,
+          "name": "8-Ball Pool",
+          "short": "eightballpool",
+          "tags": "",
+          "url": "/spel/sportspel/8-ball-pool/?language=sv",
+        },
+      ]
+    }
+    open={false}
+    removeFromFavourites={[Function]}
+  />
+</section>
+`;
+
+exports[`<GamesSection /> init should render correctly 1`] = `
+<section>
+  <styled.header
+    palette="light"
+  >
+    <h1 />
+  </styled.header>
+  <styled.button
+    dataSpec="see-more-button"
+    margin="m"
+    onClick={[Function]}
+    palette="default"
+    reverse={false}
+    size="m"
+  >
+    Show all
+  </styled.button>
+  <GameList
+    addToFavourites={[Function]}
+    defaultOpen={false}
+    games={Array []}
+    open={false}
+    removeFromFavourites={[Function]}
+  />
+</section>
+`;

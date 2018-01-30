@@ -51,9 +51,9 @@ class GamesContainer extends Component {
 
 GamesContainer.propTypes = {
   games: PropTypes.arrayOf(PropTypes.game).isRequired,
+  fetchGames: PropTypes.func.isRequired,
   addToFavourites: PropTypes.func.isRequired,
   removeFromFavourites: PropTypes.func.isRequired,
-  fetchGames: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({

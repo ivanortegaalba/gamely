@@ -3,11 +3,15 @@ import PropTypes from '../PropTypes'
 import { Button, Header } from '../style/styled-components'
 import GameList from './GameList'
 
+const ButtonRight = Button.extend`
+  float: right;
+`
+
 export class GamesSection extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      open: props.defaultOpen | false
+      open: props.defaultOpen
     }
   }
 
@@ -23,24 +27,34 @@ export class GamesSection extends Component {
 
     return (
       <section>
-      <Header palette={'light'}>
-        <h1>{title}</h1>
-      </Header>
-      <Button margin={'5px 20px 0'} onClick={this.onClickSeeMore} style={{ float: 'right' }}>
-        {this.state.open ? 'Show less' : 'Show all'}
-      </Button>
-      <GameList open={this.state.open} games={filteredGames} {...others} />
-    </section>
+        <Header palette={'light'}>
+          <h1>{title}</h1>
+        </Header>
+        <ButtonRight
+          dataSpec={'see-more-button'}
+          onClick={this.onClickSeeMore}
+          margin={'m'}>
+          {this.state.open ? 'Show less' : 'Show all'}
+        </ButtonRight>
+        <GameList open={this.state.open} games={filteredGames} {...others} />
+      </section>
     )
   }
 
 }
 
-PropTypes.propTypes = {
-  games: PropTypes.arrayOf(PropTypes.game).isRequired,
+GamesSection.propTypes = {
+  title: PropTypes.string,
+  games: PropTypes.arrayOf(PropTypes.game),
   addToFavourites: PropTypes.func.isRequired,
   removeFromFavourites: PropTypes.func.isRequired,
-  fetchGames: PropTypes.func.isRequired,
   defaultOpen: PropTypes.bool,
   filterGamesStartWith: PropTypes.string
+}
+
+GamesSection.defaultProps = {
+  title: '',
+  defaultOpen: false,
+  games: [],
+  filterGamesStartWith: ''
 }

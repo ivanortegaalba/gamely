@@ -1,6 +1,5 @@
-import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from '../constants/ActionTypes'
-import throttle from 'lodash/throttle';
-const STORAGE_KEY = 'gamely-state-local-storage'
+import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from '../actions/ActionTypes'
+export const STORAGE_KEY = 'gamely-state-local-storage'
 
 export const loadState = () => {
   try {
@@ -22,8 +21,9 @@ export const saveState = (state) => {
   }
 }
 
+// TODO: Throttle the save data
 export default store => next => action => {
-  if (action.type in [ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES]){
+  if ([ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES].indexOf(action.type) !== -1){
     saveState(store)
   }
   next(action)

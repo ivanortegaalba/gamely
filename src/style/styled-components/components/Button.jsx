@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components'
-import { key, palette, px2rems } from '../tools/functions'
+import styled from 'styled-components'
+import { key, marginFromPropsMixing, palette, px2rems } from '../tools/functions'
 import PropTypes from 'prop-types'
 import { colors } from '../../styled-components/settings/colors'
+import { spacing } from '../../styled-components/settings/spacing'
 
 const radius = px2rems(2)
 
@@ -15,13 +16,7 @@ const size = () => {
   return (props) => padding[props.size]
 }
 
-const marginMixin = css`
-  margin: ${ (props) => props.margin}
-  `
-
-// TODO: Include mixin for padding
-export const Button = styled.button
-  `
+export const Button = styled.button`
   background-color: ${(props) => Boolean(props.reverse)
     ? key('palette.white')
     : palette(1)};
@@ -58,17 +53,18 @@ export const Button = styled.button
     cursor: inherit;
   }
   
-  ${props => props.margin && marginMixin}
+  ${marginFromPropsMixing}
 `
 
 Button.propTypes = {
   palette: PropTypes.oneOf(Object.keys(colors)),
-  size: PropTypes.oneOf(['s', 'm', 'l']),
-  margin: PropTypes.string,
+  padding: PropTypes.oneOf(Object.keys(spacing)),
+  margin: PropTypes.oneOf(Object.keys(spacing)),
   reverse: PropTypes.bool
 }
 Button.defaultProps = {
   palette: 'default',
   size: 'm',
+  margin: '0',
   reverse: false
 }

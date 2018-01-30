@@ -6,7 +6,7 @@ import { camelizeKeys } from 'humps'
 // Fetches an API response and normalizes the result JSON according
 // to schema.  This makes every API response have the same shape,
 // regardless of how nested it was.
-async function callApi (endpoint, schema) {
+export async function callApi (endpoint, schema) {
   const response = await fetch(endpoint)
   const json = await response.json()
   if (!response.ok) {
@@ -59,7 +59,7 @@ export default store => next => action => {
       next(
         actionWith({
           type: failureType,
-          error: error.message || 'Something bad happened'
+          error: error.message || 'Call Api request failed'
         })
       )
   )

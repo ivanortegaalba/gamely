@@ -1,4 +1,4 @@
-import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from '../constants/ActionTypes'
+import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from '../actions/ActionTypes'
 
 const initialState = []
 

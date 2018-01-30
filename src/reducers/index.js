@@ -8,17 +8,18 @@ export default combineReducers({
   entities,
   favourites,
   filterBy,
-  games: fromEntities.fetchEntity({ entityName: 'GAMES' })
+  games: fromEntities.fetchEntity('GAMES')
 })
 
 export const getFavouritesIds = state => fromFavourites.getFavouritesIds(state.favourites)
 
 export const getGame = (state, shortName) => state.entities.games[shortName]
 
-export const getFavouriteGames = (state) => getFavouritesIds(state).map(gameId => ({
-  ...getGame(state, gameId),
-  isFavourite: true
-}))
+export const getFavouriteGames = (state) => getFavouritesIds(state)
+  .map(gameId => ({
+    ...getGame(state, gameId),
+    isFavourite: true
+  }))
 
 export const getFilterBy = (state) => fromFilter.getFilterBy(state.filterBy)
 
@@ -29,5 +30,4 @@ export const getAllGames = (state) => {
       ...getGame(state, shortName),
       isFavourite: favourites.indexOf(shortName) !== -1
     }))
-
 }
