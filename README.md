@@ -44,19 +44,6 @@ Para desarrollar esta plataforma, he decidido usar:
 
 El objectivo de esta prueba era mostrar mis habilidades usando principalmente JS y CSS, además de tener en cuenta aspectos como UX o accesibilidad.
 
-Para tal caso, he querido enfatizar en varios aspectos que desarrollaré más adelante:
-1. Uso de React para cubrir todos los aspectos de una aplicación:
-    1. Manejo de estado
-    2. Interacción con la API
-    3. Renderizado y optimización
-2. Theming, abstacción y estandarización del estilo
-    1. Abstracción y customización de CSS a partir de componentes en React
-    2. Posibilidad extraer los estilos como una librería de componentes
-3. Testing y buenas prácticas en JS
-4. Optimización, single source of truth
-5. Accesibilidad a través de React
-6. Prueba de concepto de UX
-
 ## Javascript
 * **Uso de única fuente de verdad para la interacción con el store**.
     Es uso común en Redux o en React el declarar funciones durante el render o dentro del mismo connect cuando estamos declarando un componente container.
@@ -73,7 +60,7 @@ Para tal caso, he querido enfatizar en varios aspectos que desarrollaré más ad
 
 * **Abstracción de la API a través del Middleware**.
     Uno de los grandes problemas de Redux son los side-effects que producen las acciones en las distintas partes del store y que muchas veces son dificiles de controlar.
-    Una librería bastante famosa para evitar esto es [redux-saga]() que consiste básicamente en funciones generadoras que escuchan determinado tipo de acciones para controlar estos side-effects.
+    Una librería bastante famosa para evitar esto es [redux-saga](https://github.com/redux-saga/redux-saga) que consiste básicamente en funciones generadoras que escuchan determinado tipo de acciones para controlar estos side-effects.
     No obstante, uno de los principales usos qeu se le da a esta librería es hacer peticiones a la API. Con este approach no evitas el tener que conocer donde estas llamando, de que forma, qeu recibes, como inyectarlo en el store, etc.
     La forma de declarar una petición es a través de una acción:
     ```
@@ -89,7 +76,7 @@ Para tal caso, he querido enfatizar en varios aspectos que desarrollaré más ad
     1. Lanzará la petición fetch, a la vez que lanzará una acción con el type `requestType`:
     2. Una vez la petición se resuelve:
         * Si la petición ha sido satisfactoria, se lanzará una acción con el tipo  `successType` y con la respuesta **Normalizada** en base al esquema enviado en la acción.
-        Esto es muy importante para evitar tener deslocalizadas las entidades dentro del store. Para mas información ver la librería [normalizr]()
+        Esto es muy importante para evitar tener deslocalizadas las entidades dentro del store. Para mas información ver la librería [normalizr](https://github.com/paularmstrong/normalizr)
         * Si la petición ha sido fallida, se lanzará una accion de tipo `failureType` y además se añadirá un campo error con la información del error.
     Con esta arquitectura, es muy facil controlar toda la data recibida a través de peticiones fetch, ya que simplemente tenemos que distribuirla por el store usando los reducers que traten dichos tipos de acción.
     Además, usando la normalización, siempre guardaremos en un solo sitio la entidad, y podrémos distribuir las ids de dicho elemento a nuestro antojo, evitando así inconsistencia de datos.
@@ -108,8 +95,8 @@ Para tal caso, he querido enfatizar en varios aspectos que desarrollaré más ad
 ## CSS
 * **Estandarización de estilos. Del SASS al CSS-in-JS**.
 Son muchos los problemas con los que tenemos que lidiar desarrollando con CSS: sobreescritura, parametrización, funciones, tooling, etc.
-Gracias a SASS podemos solventar algunos de ellos. Otros como el evitar la sobreescritura y el famoso important han de usarse herramientas como [CSS Modules]() o [PostCSS]().
-En esta prueba, he intentado ir más hayá, y he usado [styled-component](). Sigue la misma filosofía que CSS Modules, pero assignando directamente el className al componente.
+Gracias a SASS podemos solventar algunos de ellos. Otros como el evitar la sobreescritura y el famoso important han de usarse herramientas como [CSS Modules](https://github.com/css-modules/css-modules) o [PostCSS](http://postcss.org/).
+En esta prueba, he intentado ir más hayá, y he usado [styled-component](https://www.styled-components.com/). Sigue la misma filosofía que CSS Modules, pero assignando directamente el className al componente.
 De esta manera, podemos asegurar que ese CSS no va a ser sobreescrito por otro.
 Otra de las grandes ventajas, es que podemos ejecutar funciones dentro del string template, por lo que podemos manejar el css directamente desde JS, evitando así tener que aprender
 lenguajes nuevos, o pre procesadores. Véase en la implementación:
