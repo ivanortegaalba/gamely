@@ -4,7 +4,8 @@
 * Horas invertidas: 20h
 * Prácticas usadas:
     * Maquetación parcial siguiendo BEM y [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) con el pre-processador SASS.
-    A mitad pensé en mostar una comparativa diferente con styled-component. *El SASS no está siendo usado, solo está ahí para mostrar que mi forma de trabajar con el*.
+    A mitad pensé en mostar una comparativa diferente con styled-component.
+    *El SASS no está siendo usado, solo está ahí para mostrar que mi forma de trabajar con el*.
     * TDD (Jest) y Snapshot testing
     * Linting para accesibilidad y buenas prácticas en React a través de:
         - [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)
@@ -14,7 +15,8 @@
     * Mostrar mis capacidades de arquitectura de software y buena praxis en Javascript
     * Mostrar la capacidad de construir semantic HTML a través de React
     * Mostrar la capacidad de abstraer los estilos de la lógica de aplicación
-    * Proveer diferentes perspectivas de architectura para modularizar componentes (véase el uso de componentes comunes customizables pero estandarizados)
+    * Proveer diferentes perspectivas de architectura para modularizar componentes
+    (véase el uso de componentes comunes customizables pero estandarizados)
     * Presentar nuevos conceptos de Frontend como CSS-in-JS o TDD basado en Snapshot Testing
     * Promover el buen uso del unit testing a distintos niveles en React: Componente, Reducer, Selectors, Distpachers...
     * Demostrar que no siempre rápido significa malo: Un projecto sólido en 20 horas
@@ -33,7 +35,8 @@
     * Mejorar la apariencia de la web. Se ha quedado en un simple boceto por poner énfasis en la arquitectura de JS.
     * Mejorar la usabilidad concatenando los focus y ajustando mejor el grid a la pantalla
     * Crear los styled-components como: Grid, Flex, Card, etc.
-    * Añadir el plugin de styled-component para mostrar el nombre del componente y subcomponente siguiendo la convención BEM. Ahora, solo con el hash, se hace dificil el debug.
+    * Añadir el plugin de styled-component para mostrar el nombre del componente y subcomponente siguiendo la convención BEM.
+    Ahora, solo con el hash, se hace dificil el debug.
 
 ## Introducción
 Para desarrollar esta plataforma, he decidido usar:
@@ -46,8 +49,11 @@ Para desarrollar esta plataforma, he decidido usar:
 
 ## Javascript
 ### Uso de única fuente de verdad para la interacción con el store.
-Es uso común en Redux o en React el declarar funciones durante el render o dentro del mismo connect cuando estamos declarando un componente container.
-He replanteado esta práctica para evitar el duplicar código, malgastar memoria declarando más de una vez las funciones o eventos, o inclusos añadir infinitos listeners sin necesidad.
+Es uso común en Redux o en React el declarar funciones durante el render o dentro del mismo connect
+cuando estamos declarando un componente container.
+He replanteado esta práctica para evitar el duplicar código,
+malgastar memoria declarando más de una vez las funciones o eventos, o inclusos añadir infinitos listeners sin necesidad.
+
 Para ello he manejado conceptos como:
 - Dispatchers: Contendrán todas las funciones que hagan usos del dispatch para lanzar una acción
 - Selectors: Manejarán la lógica de cada uno de los reducers (véase los que están declarados dentro del propio archivo del reducer) o de la interacción entre los mismos (véase los declarados en el index.js que hace la combinación final.)
@@ -55,13 +61,17 @@ Para ello he manejado conceptos como:
 Esta división tiene ventajas como:
 - Fácil unit testing
 - Una sola fuente de verdad para lanzar acciones u obtener información del store
-- Fácil refactor de reducers y estructura del store
+- Fácil refáctor de reducers y estructura del store
 - Abstracción del store en los containers
 
 ### Abstracción de la API a través del Middleware
-Uno de los grandes problemas de Redux son los side-effects que producen las acciones en las distintas partes del store y que muchas veces son dificiles de controlar.
-Una librería bastante famosa para evitar esto es [redux-saga](https://github.com/redux-saga/redux-saga) que consiste básicamente en funciones generadoras que escuchan determinado tipo de acciones para controlar estos side-effects.
-No obstante, uno de los principales usos qeu se le da a esta librería es hacer peticiones a la API. Con este approach no evitas el tener que conocer donde estas llamando, de que forma, qeu recibes, como inyectarlo en el store, etc.
+Uno de los grandes problemas de Redux son los side-effects que producen las acciones en las distintas partes del store
+y que muchas veces son dificiles de controlar.
+Una librería bastante famosa para evitar esto es [redux-saga](https://github.com/redux-saga/redux-saga) que consiste básicamente
+en funciones generadoras que escuchan determinado tipo de acciones para controlar estos side-effects.
+
+No obstante, uno de los principales usos qeu se le da a esta librería es hacer peticiones a la API.
+Con este approach no evitas el tener que conocer donde estas llamando, de que forma, qeu recibes, como inyectarlo en el store, etc.
 La forma de declarar una petición es a través de una acción:
 ```
 {
@@ -80,6 +90,7 @@ Con esto, el middleware:
     * Si la petición ha sido fallida, se lanzará una accion de tipo `failureType` y además se añadirá un campo error con la información del error.
 Con esta arquitectura, es muy facil controlar toda la data recibida a través de peticiones fetch, ya que simplemente tenemos que distribuirla por el store usando los reducers que traten dichos tipos de acción.
 Además, usando la normalización, siempre guardaremos en un solo sitio la entidad, y podrémos distribuir las ids de dicho elemento a nuestro antojo, evitando así inconsistencia de datos.
+
 TODO:
 - [ ] Add extraParams to the call API actions to support POST, PUT and PATCH requests
 - [ ] Testear que los errores son lanzados
@@ -88,18 +99,28 @@ TODO:
 ### Abstracción del localStorage a traves del Middleware
 Al igual que el middleware para la interacción con la API, el middleware de la localStorage nos permite guardar ciertas partes del store en la memoria local cuando determinadas acciones son despachadas.
 El uso es muy simple, para este caso, cuando un juego es guardado o borrado, actualizamos el store guardado en la memoria local.
+
 ### Semantic testing and TDD
 Durante el desarrollo de la aplicación, cada una de las funciones ha sido desarrollada a la par de su tests.
 Los componentes de react, a su excepción, primeramente fueron maquetados, y después distribuidos y testeados.
-Además, he procurado describir y utilizar semanticamente cada una de las tests suites para poder explicar la funcionalidad del código a través de los mismos tests. No obstante, debido al ajustado tiempo, no han sido lo suficientemente revisados.
+
+Además, he procurado describir y utilizar semanticamente cada una de las tests suites para poder explicar la
+funcionalidad del código a través de los mismos tests.
+
+No obstante, debido al ajustado tiempo, no han sido lo suficientemente revisados.
 
 ## CSS
 ### Estandarización de estilos. Del SASS al CSS-in-JS
-Son muchos los problemas con los que tenemos que lidiar desarrollando con CSS: sobreescritura, parametrización, funciones, tooling, etc.
-Gracias a SASS podemos solventar algunos de ellos. Otros como el evitar la sobreescritura y el famoso important han de usarse herramientas como [CSS Modules](https://github.com/css-modules/css-modules) o [PostCSS](http://postcss.org/).
-En esta prueba, he intentado ir más hayá, y he usado [styled-component](https://www.styled-components.com/). Sigue la misma filosofía que CSS Modules, pero assignando directamente el className al componente.
+Son muchos los problemas con los que tenemos que lidiar desarrollando con CSS: sobreescritura, parametrización, funciones, tooling, etc. Gracias a SASS podemos solventar algunos de ellos.
+
+Otros como el evitar la sobreescritura y el famoso important han de usarse herramientas como [CSS Modules](https://github.com/css-modules/css-modules) o [PostCSS](http://postcss.org/).
+
+En esta prueba, he intentado ir más hayá, y he usado [styled-component](https://www.styled-components.com/).
+Sigue la misma filosofía que CSS Modules, pero assignando directamente el className al componente.
 De esta manera, podemos asegurar que ese CSS no va a ser sobreescrito por otro.
-Otra de las grandes ventajas, es que podemos ejecutar funciones dentro del string template, por lo que podemos manejar el css directamente desde JS, evitando así tener que aprender
+
+Otra de las grandes ventajas, es que podemos ejecutar funciones dentro del string template,
+por lo que podemos manejar el css directamente desde JS, evitando así tener que aprender
 lenguajes nuevos, o pre procesadores. Véase en la implementación:
 - mixins para añadir margins
 - la parametrización del CSS en base a props del componente
@@ -114,6 +135,7 @@ No obstante no había mucho contenido, por lo que la mayor parte no lo he podido
 ## Accesibilidad y compatibilidad
 En cuanto a la accesibilidad, la propia guía de React te explica los problemas mas comunes acerca de accesibilidad en React.
 Por haberlo dejado a lo último, no he tenido tiempo apenas de preocuparme por ello, por tanto me gustaría comentar un poco en la entrevista.
+
 No obstante he realizado:
 - Buen manejo del focus y el uso de la app sin raton
 - Uso de rems en vez de pixels. Esto evita el problema de dimensionado y descolocación de elementos. Véase [este artículo](https://engageinteractive.co.uk/blog/em-vs-rem-vs-px)
