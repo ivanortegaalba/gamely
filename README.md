@@ -1,4 +1,10 @@
 # Gamely
+## Instalación
+Ha sido generado como estático con todas las rutas relativas a la url de donde se sirve. Por tanto, abriendo solo el HTML en local no funcionará.
+Para ver la aplicación hay varias opciones:
+1. Acceder a la página donde he subido el estático:
+2. Hacer git clone del proyect, y desde la carpeta raiz del mismo ejecutar: `npm install` y posteriormente `npm start` y ya estaría accesible desde localhost:8000
+3. Descargar una extensión para Chrome como [Web Server 200 OK!](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb) que simplemente seleccionando el index.html cargará la página en local.
 
 ## Datos sobre el desarrollo:
 * Horas invertidas: 20h
@@ -22,7 +28,7 @@
     * Demostrar que no siempre rápido significa malo: Un projecto sólido en 20 horas
 * Principales 3 puntos débiles y 3 puntos fuertes:
     * Débiles:
-        * CSS poco atractivo (Tenía pensamiento de hacer un guiño al estilo Candy)
+        * Estilo poco atractivo (Tenía pensamiento de hacer un guiño a King al estilo Candy Crush, pero por falta de tiempo ha quedado como un prototipo)
         * Componentes customizados sin ser abstraidos
         * Dejar la accesibilidad para el final, y no poder haberla implementado al completo
     * Fuertes:
