@@ -23,6 +23,7 @@
     * Mejorar la apariencia de la web. Se ha quedado en un simple boceto por poner énfasis en la arquitectura de JS.
     * Mejorar la usabilidad concatenando los focus y ajustando mejor el grid a la pantalla
     * Crear los styled-components como: Grid, Flex, Card, etc.
+    * Añadir el plugin de styled-component para mostrar el nombre del componente y subcomponente siguiendo la convención BEM. Ahora, solo con el hash, se hace dificil el debug.
 * Principales 3 puntos débiles y 3 puntos fuertes:
     * Débiles:
         * CSS poco atractivo (Tenía pensamiento de hacer un guiño al estilo Candy)
@@ -38,7 +39,7 @@ Para desarrollar esta plataforma, he decidido usar:
 - React (CRA para ahorrar tiempo en la configuraciónd de Webpack)
 - Redux
 - Jest (testing)
-- [styled-component]() (CSS-in-JS)
+- [styled-component](https://www.styled-components.com/) (CSS-in-JS)
 - SASS (ha sido sustituido en última instancia por styled-component)
 
 El objectivo de esta prueba era mostrar mis habilidades usando principalmente JS y CSS, además de tener en cuenta aspectos como UX o accesibilidad.
@@ -105,5 +106,30 @@ Para tal caso, he querido enfatizar en varios aspectos que desarrollaré más ad
     Los componentes de react, a su excepción, primeramente fueron maquetados, y después distribuidos y testeados.
     Además, he procurado describir y utilizar semanticamente cada una de las tests suites para poder explicar la funcionalidad del código a través de los mismos tests. No obstante, debido al ajustado tiempo, no han sido lo suficientemente revisados.
 ## CSS
-## Accesibilidad
+* **Estandarización de estilos. Del SASS al CSS-in-JS**.
+Son muchos los problemas con los que tenemos que lidiar desarrollando con CSS: sobreescritura, parametrización, funciones, tooling, etc.
+Gracias a SASS podemos solventar algunos de ellos. Otros como el evitar la sobreescritura y el famoso important han de usarse herramientas como [CSS Modules]() o [PostCSS]().
+En esta prueba, he intentado ir más hayá, y he usado [styled-component](). Sigue la misma filosofía que CSS Modules, pero assignando directamente el className al componente.
+De esta manera, podemos asegurar que ese CSS no va a ser sobreescrito por otro.
+Otra de las grandes ventajas, es que podemos ejecutar funciones dentro del string template, por lo que podemos manejar el css directamente desde JS, evitando así tener que aprender
+lenguajes nuevos, o pre procesadores. Véase en la implementación:
+    - mixins para añadir margins
+    - la parametrización del CSS en base a props del componente
+    - la gran utilización de código
+    - la posibilidad de testear el CSS desde Jest
+    - tematización en base a JSON configurable
+
+## Accesibilidad y compatibilidad
+En cuanto a la accesibilidad, la propia guía de React te explica los problemas mas comunes acerca de accesibilidad en React.
+Por haberlo dejado a lo último, no he tenido tiempo apenas de preocuparme por ello, por tanto me gustaría comentar un poco en la entrevista.
+No obstante he realizado:
+- Buen manejo del focus y el uso de la app sin raton
+- Uso de rems en vez de pixels. Esto evita el problema de dimensionado y descolocación de elementos. Véase [este artículo](https://engageinteractive.co.uk/blog/em-vs-rem-vs-px)
+- Responsive design. La aplicación es perfectamente usable en todo tipo de dispositivos
 ## UX/UI
+Respecto al diseño:
+- He optado por un layout tipo Netflix, Google App Store, etc.
+- Básicamente dos secciones colapsables y escrolables horizontalmente.
+- He añadido una barra de busqueda simultanea en ambos paneles para que la busqueda sea efectiva, y el cambio de focus con el teclado ea rápido.
+- He usado una paleta de colores con 3 tonos cada uno de ellos, jugando con eso establezco la tonalidad de los elementos del componente para poder ser tematizado facilmente.
+- Los margins y paddings son standard. Han sido establecidos tamaños siguiendo la nomenclatura de tallas.
