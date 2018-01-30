@@ -1,7 +1,7 @@
-import favourites from '../favourites'
+import favourites, { selectors } from '../favourites'
 import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from '../../actions/ActionTypes'
 
-describe('reducers', () => {
+describe('favourites reducers', () => {
   describe('favourites', () => {
     const initialState = []
 
@@ -35,6 +35,16 @@ describe('reducers', () => {
         const state = []
         expect(favourites(state, { type: 'REMOVE_FROM_FAVOURITES', shortName })).toEqual([])
       })
+    })
+  })
+})
+
+describe('favourites selectors', () => {
+  const { getFavouritesIds } = selectors
+  describe('getFavouritesIds', function () {
+    it('should return the array of favourites short names', () => {
+      const favourites = ['whatever name']
+      expect(getFavouritesIds(favourites)).toEqual(favourites)
     })
   })
 })

@@ -1,29 +1,25 @@
 import { combineReducers } from 'redux'
-import favourites, * as fromFavourites from './favourites'
-import filterBy, * as fromFilter from './filter'
-import entities, * as fromEntities from './entities'
 import { get } from 'lodash'
+import { reducers as favouritesReducers, selectors as favouritesSelectors } from './favourites'
+import { reducers as filterByReducers, selectors as filterBySelectors } from './filter'
+import { reducers as entitiesReducer } from './entities'
 
-export default combineReducers({
-  entities,
-  favourites,
-  filterBy,
-  games: fromEntities.fetchEntity('GAMES')
-})
+// TODO: Comment functions
 
-export const getFavouritesIds = state => fromFavourites.getFavouritesIds(state.favourites)
+const getFavouritesIds = state => favouritesSelectors.getFavouritesIds(state.favourites)
 
-export const getGame = (state, shortName) => state.entities.games[shortName]
+// TODO: Use a entity selector in order to access into entities.
+const getGame = (state, shortName) => state.entities.games[shortName]
 
-export const getFavouriteGames = (state) => getFavouritesIds(state)
+const getFavouriteGames = (state) => getFavouritesIds(state)
   .map(gameId => ({
     ...getGame(state, gameId),
     isFavourite: true
   }))
 
-export const getFilterBy = (state) => fromFilter.getFilterBy(state.filterBy)
+const getFilterBy = (state) => filterBySelectors.getFilterBy(state.filterBy)
 
-export const getAllGames = (state) => {
+const getAllGames = (state) => {
   const favourites = getFavouritesIds(state)
   return get(state, 'games.items', [])
     .map(shortName => ({
@@ -31,3 +27,30 @@ export const getAllGames = (state) => {
       isFavourite: favourites.indexOf(shortName) !== -1
     }))
 }
+
+const rootReducer = combineReducers({
+  entities: entitiesReducer.entities,
+  favourites: favouritesReducers.favourites,
+  filterBy: filterByReducers.filterBy,
+  games: entitiesReducer.fetchEntity('GAMES')
+})
+
+export const reducers = {
+  rootReducer,
+  ...entitiesReducer,
+  ...favouritesReducers,
+  ...filterByReducers,
+  ...filterByReducers,
+  ...entitiesReducer,
+  fetchEntityGames: entitiesReducer.fetchEntity('GAMES')
+}
+
+export const selectors = {
+  getFavouritesIds,
+  getGame,
+  getFavouriteGames,
+  getFilterBy,
+  getAllGames
+}
+
+export default rootReducer

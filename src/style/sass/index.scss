@@ -1,5 +1,3 @@
-@import '~sanitize.css';
-
 // Settings
 @import 'settings/colors';
 @import 'settings/fonts';
@@ -20,7 +18,7 @@
 
 // Objects
 @import 'objects/grid';
-@import 'settings/spacing';
+@import 'objects/spacing';
 @import 'objects/flex';
 
 body {

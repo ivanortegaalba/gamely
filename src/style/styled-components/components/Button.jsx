@@ -42,7 +42,6 @@ export const Button = styled.button`
   &:active,
   &:focus {
     border-color: ${palette(2)};
-    outline: none;
   }
 
   &[disabled],
@@ -59,7 +58,7 @@ export const Button = styled.button`
 Button.propTypes = {
   palette: PropTypes.oneOf(Object.keys(colors)),
   padding: PropTypes.oneOf(Object.keys(spacing)),
-  margin: PropTypes.oneOf(Object.keys(spacing)),
+  margin: PropTypes.string,
   reverse: PropTypes.bool
 }
 Button.defaultProps = {

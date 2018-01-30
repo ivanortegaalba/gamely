@@ -1,42 +1,50 @@
 import React, { Component, Fragment } from 'react'
-import styled from 'styled-components'
-import { addToFavourites, fetchGames, removeFromFavourites } from '../actions'
-import PropTypes from '../PropTypes'
-import * as selectors from '../reducers'
 import { connect } from 'react-redux'
-import { GamesSection } from '../components/GamesSection'
-import { Header } from '../style/styled-components'
-import { palette } from 'styled-theme'
-import { filterGameBy } from '../actions/dispatchers'
+import PropTypes from '../PropTypes'
+import styled from 'styled-components'
+import { Header, px2rems } from '../style/styled-components'
+import { palette, key } from '../style/styled-components/tools/functions'
+import { dispatchers } from '../actions'
+import { selectors } from '../reducers'
+import { GamesSection } from '../components'
 
-const Input = styled.input`
+// TODO: Move this component to the styled-components library
+const InputHeader = styled.input`
   border: 1px solid ${palette(0)};
   color: white;
   text-decoration-color: white;
-  padding: 15px;
-  width: 100%;
+  padding: ${px2rems(15)};
+  width: 50%;
+  font-size: ${key('fontSizes.s')}px;
   background-color: ${palette(2)};
   text-align: center;
+  font-size: ${props => props.theme};
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  ::placeholder { 
+    color: ${key('palette.white')};
+    opacity: 1; /* Firefox */
+}
 `
 
-class GamesContainer extends Component {
+class MainView extends Component {
   componentDidMount () {
     this.props.fetchGames()
   }
 
   onSearchChange = (event) => {
-    debugger
     this.props.filterGameBy(event.target.value)
   }
 
   render () {
     const { games, favourites, filterBy, ...others } = this.props
-
     return <Fragment>
       <section id='search'>
-        <Header palette={'blue'} size={'l'}>
-          <Input palette={'primary'} type='text' placeholder={'Search game...'}
-                 onChange={this.onSearchChange} />
+        <Header palette={'dark'}>
+          <InputHeader
+            palette={'dark'}
+            type='text'
+            placeholder={'Search game...'}
+            onChange={this.onSearchChange} />
         </Header>
       </section>
       {favourites.length > 0 &&
@@ -49,11 +57,11 @@ class GamesContainer extends Component {
   }
 }
 
-GamesContainer.propTypes = {
+MainView.propTypes = {
   games: PropTypes.arrayOf(PropTypes.game).isRequired,
   fetchGames: PropTypes.func.isRequired,
   addToFavourites: PropTypes.func.isRequired,
-  removeFromFavourites: PropTypes.func.isRequired,
+  removeFromFavourites: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -62,6 +70,7 @@ const mapStateToProps = state => ({
   filterBy: selectors.getFilterBy(state)
 })
 
+const { addToFavourites, removeFromFavourites, fetchGames, filterGameBy } = dispatchers
 export default connect(
   mapStateToProps,
   {
@@ -70,4 +79,4 @@ export default connect(
     fetchGames,
     filterGameBy
   }
-)(GamesContainer)
+)(MainView)

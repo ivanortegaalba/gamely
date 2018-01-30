@@ -1,5 +1,4 @@
-import { addToFavouritesUnsafe, fetchGames, filterGamesBy, removeFromFavouritesUnsafe
-} from '../actionCreators'
+import { addToFavouritesUnsafe, fetchGames, filterGamesBy, removeFromFavouritesUnsafe } from '../actionCreators'
 import gameMock from '../../__mocks__/game'
 
 describe('actionCreators', () => {

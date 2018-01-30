@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallowWithStore } from '../../testUtils'
-import GamesContainer from '../../containers/GamesView'
+import MainView from '../MainView'
 import { createMockStore } from 'redux-test-utils'
 
 // TODO: Test the component without connect
 // TODO: Test the componentDidMount lifecycle
-describe('<GamesContainer />', () => {
+describe('<MainView />', () => {
   describe('init', () => {
     const store = createMockStore({
       entities: {},
@@ -13,7 +13,7 @@ describe('<GamesContainer />', () => {
       games: [],
       filterBy: ''
     })
-    const component = <GamesContainer />
+    const component = <MainView />
     const wrapper = shallowWithStore(component, store)
     it('should render correctly', () => {
       expect(wrapper).toMatchSnapshot()

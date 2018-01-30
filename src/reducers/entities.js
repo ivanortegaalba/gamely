@@ -26,7 +26,7 @@ export function actionNames (entityName) {
   return [requestType, successType, failureType]
 }
 
-export function fetchEntity (entityName) {
+function fetchEntity (entityName) {
   let requestType
   let successType
   let failureType
@@ -59,5 +59,12 @@ export function fetchEntity (entityName) {
     }
   }
 }
+
+export const reducers = {
+  entities,
+  fetchEntity
+}
+
+export const selectors = {}
 
 export default entities

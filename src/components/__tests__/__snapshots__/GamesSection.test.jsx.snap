@@ -10,6 +10,7 @@ exports[`<GamesSection /> has many games should render correctly 1`] = `
   <styled.button
     dataSpec="see-more-button"
     margin="m"
+    marginBottom="0"
     onClick={[Function]}
     palette="default"
     reverse={false}
@@ -55,6 +56,7 @@ exports[`<GamesSection /> init should render correctly 1`] = `
   <styled.button
     dataSpec="see-more-button"
     margin="m"
+    marginBottom="0"
     onClick={[Function]}
     palette="default"
     reverse={false}

@@ -33,7 +33,8 @@ export class GamesSection extends Component {
         <ButtonRight
           dataSpec={'see-more-button'}
           onClick={this.onClickSeeMore}
-          margin={'m'}>
+          margin={'m'}
+          marginBottom={'0'}>
           {this.state.open ? 'Show less' : 'Show all'}
         </ButtonRight>
         <GameList open={this.state.open} games={filteredGames} {...others} />

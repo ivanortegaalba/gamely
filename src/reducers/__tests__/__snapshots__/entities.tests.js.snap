@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reducers fetchEntity for *_FAILURE type should provide the initial state 1`] = `
+exports[`entities reducers fetchEntity for *_FAILURE type should provide the initial state 1`] = `
 Object {
   "error": true,
   "isFetching": false,
@@ -8,7 +8,7 @@ Object {
 }
 `;
 
-exports[`reducers fetchEntity for *_REQUEST type should provide the initial state 1`] = `
+exports[`entities reducers fetchEntity for *_REQUEST type should provide the initial state 1`] = `
 Object {
   "error": false,
   "isFetching": true,
@@ -16,7 +16,7 @@ Object {
 }
 `;
 
-exports[`reducers fetchEntity for *_SUCCESS type should provide the initial state 1`] = `
+exports[`entities reducers fetchEntity for *_SUCCESS type should provide the initial state 1`] = `
 Object {
   "error": false,
   "isFetching": false,

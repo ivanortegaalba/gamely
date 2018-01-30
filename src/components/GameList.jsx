@@ -4,7 +4,7 @@ import { FlexGrid, Grid } from '../style/styled-components/objects/Grid'
 import { Flex } from '../style/styled-components/objects/Flex'
 import Game from './Game'
 
-// TODO: Create Element list
+// TODO: Create style-component List
 export function GameList ({ games, open, addToFavourites, removeFromFavourites }) {
   const Wrapper = open ? Grid : FlexGrid
   return <Wrapper>

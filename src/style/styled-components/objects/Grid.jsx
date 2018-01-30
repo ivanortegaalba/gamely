@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { px2rems } from '../tools/functions'
 
-const verticalPadding = px2rems(5)
+const verticalPadding = px2rems(15)
 
 export const FlexGrid = styled.div`
   padding: ${verticalPadding} 0;

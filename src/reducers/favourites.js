@@ -2,7 +2,7 @@ import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from '../actions/ActionType
 
 const initialState = []
 
-export default (state = initialState, action) => {
+const favourites = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_FAVOURITES:
       if (state.indexOf(action.shortName) !== -1) {
@@ -19,6 +19,14 @@ export default (state = initialState, action) => {
   }
 }
 
-export const getFavouritesIds = (state) => {
+const getFavouritesIds = (state) => {
   return state
 }
+
+export const selectors = {
+  getFavouritesIds
+}
+export const reducers = {
+  favourites
+}
+export default favourites

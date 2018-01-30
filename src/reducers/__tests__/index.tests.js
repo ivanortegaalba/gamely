@@ -1,7 +1,8 @@
-import { getAllGames, getFavouriteGames, getFavouritesIds, getFilterBy, getGame } from '../index'
+import { selectors } from '../index'
 import gameMock from '../../__mocks__/game'
 
 describe('selectors', () => {
+  const { getFavouritesIds, getFilterBy, getAllGames, getFavouriteGames, getGame} = selectors
   const state = {
     entities: {
       games: {

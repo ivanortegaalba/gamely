@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<GamesContainer /> init should pass connect the necessary props 1`] = `
+exports[`<MainView /> init should pass connect the necessary props 1`] = `
 Object {
   "addToFavourites": [Function],
   "favourites": Array [],
@@ -12,8 +12,8 @@ Object {
 }
 `;
 
-exports[`<GamesContainer /> init should render correctly 1`] = `
-<GamesContainer
+exports[`<MainView /> init should render correctly 1`] = `
+<MainView
   addToFavourites={[Function]}
   favourites={Array []}
   fetchGames={[Function]}

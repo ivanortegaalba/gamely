@@ -25,7 +25,6 @@ exports[`<Button/> Button default renders without crashing 1`] = `
 .c0:active,
 .c0:focus {
   border-color: #59636b;
-  outline: none;
 }
 
 .c0[disabled],
@@ -69,7 +68,6 @@ exports[`<Button/> Button with custom color renders without crashing 1`] = `
 .c0:active,
 .c0:focus {
   border-color: #43caea;
-  outline: none;
 }
 
 .c0[disabled],
@@ -117,7 +115,6 @@ exports[`<Button/> Button with custom margin renders without crashing 1`] = `
 .c0:active,
 .c0:focus {
   border-color: #59636b;
-  outline: none;
 }
 
 .c0[disabled],
@@ -161,7 +158,6 @@ exports[`<Button/> Button with custom size renders without crashing 1`] = `
 .c0:active,
 .c0:focus {
   border-color: #59636b;
-  outline: none;
 }
 
 .c0[disabled],

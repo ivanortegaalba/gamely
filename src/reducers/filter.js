@@ -2,7 +2,7 @@ import { FILTER_BY } from '../actions/ActionTypes'
 
 const initialState = ''
 
-export default (state = initialState, action) => {
+const filterBy = (state = initialState, action) => {
   switch (action.type) {
     case FILTER_BY:
       return action.filterBy
@@ -11,6 +11,15 @@ export default (state = initialState, action) => {
   }
 }
 
-export const getFilterBy = (state) => {
+
+const getFilterBy = (state) => {
   return state
 }
+
+export const reducers = {
+  filterBy
+}
+export const selectors = {
+  getFilterBy
+}
+export default filterBy

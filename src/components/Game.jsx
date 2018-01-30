@@ -14,6 +14,7 @@ export function Game ({ game, addToFavourites, removeFromFavourites }) {
       removeFromFavourites(game.short)
     }
   }
+  const goToPlay = () => {window.open(getGameURL(game), '_blank')}
   return <article>
     <figure>
       <img src={getLogoUrl(game)} alt='The Pulpit Rock' width='60' height='60' />
@@ -25,7 +26,7 @@ export function Game ({ game, addToFavourites, removeFromFavourites }) {
           palette={'danger'}
           size={'s'}
           onClick={onClickFavourite}
-          marginRight={'s'}
+          margin={'0 xs 0 0'}
           reverse>
           Remove
         </Button>
@@ -34,19 +35,18 @@ export function Game ({ game, addToFavourites, removeFromFavourites }) {
           palette={'primary'}
           size={'s'}
           onClick={onClickFavourite}
-          marginRight={'s'}
+          margin={'0 xs 0 0'}
         >
           Save
         </Button>}
-      <a href={getGameURL(game)}>
-        <Button
-          dataSpec={'play-button'}
-          size={'s'}
-          marginLeft={'s'}
-          reverse={true}>
-          Play
-        </Button>
-      </a>
+      <Button
+        dataSpec={'play-button'}
+        size={'s'}
+        margin={'0 0 0 xs'}
+        onClick={goToPlay}
+        reverse={true}>
+        Play
+      </Button>
     </footer>
   </article>
 }
