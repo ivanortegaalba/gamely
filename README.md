@@ -2,7 +2,7 @@
 ## Instalación
 Ha sido generado como estático con todas las rutas relativas a la url de donde se sirve. Por tanto, abriendo solo el HTML en local no funcionará.
 Para ver la aplicación hay varias opciones:
-1. Acceder a la página donde he subido el estático:
+1. Acceder a la página donde he subido el estático: https://ivanortegaalba.github.io/gamely/
 2. Hacer git clone del proyect, y desde la carpeta raiz del mismo ejecutar: `npm install` y posteriormente `npm start` y ya estaría accesible desde localhost:8000
 3. Descargar una extensión para Chrome como [Web Server 200 OK!](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb) que simplemente seleccionando el index.html cargará la página en local.
 
