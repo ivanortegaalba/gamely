@@ -1,4 +1,11 @@
-$spacing-map: ('-xs': 7px, '-s': 11px, '': 16px, '-l': 23px, '-xl': 40px, '-xxl': 74px);
+$spacing-map: (
+  '-xs': 7px,
+  '-s': 11px,
+  '': 16px,
+  '-l': 23px,
+  '-xl': 40px,
+  '-xxl': 74px
+);
 
 @each $suffix, $spacing in $spacing-map {
   .margin-top#{$suffix} {
