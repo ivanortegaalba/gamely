@@ -12,4 +12,4 @@ export { colors } from './settings/colors'
 export { fonts } from './settings/fonts'
 
 // Tools
-export { px2rems } from './tools/functions'
+export { px2rems, palette, prop, key } from './tools/functions'

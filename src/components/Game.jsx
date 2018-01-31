@@ -1,6 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from '../PropTypes'
-import { Button } from '../style/styled-components'
+import { Button, px2rems } from '../style/styled-components'
 import { GAME_LIBRARY_URL } from '../constants'
 
 export function Game ({ game, addToFavourites, removeFromFavourites }) {
@@ -15,10 +16,17 @@ export function Game ({ game, addToFavourites, removeFromFavourites }) {
     }
   }
   const goToPlay = () => {window.open(getGameURL(game), '_blank')}
-  return <article>
+  const Flex = styled.article`
+  flex: 0 0 auto;
+  padding-bottom: ${props => px2rems(props.theme.spacing['l'])};
+  text-align: center;
+`
+  return <Flex>
+    <header>
+      {game.name}
+    </header>
     <figure>
-      <img src={getLogoUrl(game)} alt='The Pulpit Rock' width='60' height='60' />
-      <figcaption>{game.name}</figcaption>
+      <img src={getLogoUrl(game)} alt={game.name} width='60' height='60' />
     </figure>
     <footer>
       {game.isFavourite ? <Button
@@ -48,7 +56,7 @@ export function Game ({ game, addToFavourites, removeFromFavourites }) {
         Play
       </Button>
     </footer>
-  </article>
+  </Flex>
 }
 
 Game.propTypes = {

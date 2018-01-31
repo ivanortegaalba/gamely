@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { px2rems } from '../tools/functions'
 
-const verticalPadding = px2rems(15)
+const verticalPadding = px2rems(0)
 
-export const FlexGrid = styled.div`
+export const FlexGrid = styled.section`
   padding: ${verticalPadding} 0;
   margin: 0;
   width: 100%;
@@ -35,7 +35,7 @@ export const FlexGrid = styled.div`
 }
 `
 
-export const Grid = styled.div`
+export const Grid = styled.section`
   margin: 0;
   width: 100%;
   

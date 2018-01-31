@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from '../PropTypes'
 import { FlexGrid, Grid } from '../style/styled-components/objects/Grid'
-import { Flex } from '../style/styled-components/objects/Flex'
 import Game from './Game'
 
 // TODO: Create style-component List
 export function GameList ({ games, open, addToFavourites, removeFromFavourites }) {
   const Wrapper = open ? Grid : FlexGrid
+
   return <Wrapper>
-    {games.map((game, idx) => <Flex key={idx}>
+    {games.map((game, idx) =>
       <Game
+        key={idx}
         game={game}
-        addToFavourites={addToFavourites }
+        addToFavourites={addToFavourites}
         removeFromFavourites={removeFromFavourites}
-      />
-    </Flex>)}
+      />)}
   </Wrapper>
 }
 
