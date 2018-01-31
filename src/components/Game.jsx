@@ -13,7 +13,6 @@ const FlexItem = styled.article`
 export function Game({ game, addToFavourites, removeFromFavourites }) {
   const getLogoUrl = ({ short }) =>
     `${GAME_LIBRARY_URL}/images/games/${short}/${short}_60x60.gif`;
-  const getGameURL = ({ url }) => `${GAME_LIBRARY_URL}${url}`;
   const onClickFavourite = () => {
     if (!game.isFavourite) {
       addToFavourites(game.short);
@@ -22,7 +21,7 @@ export function Game({ game, addToFavourites, removeFromFavourites }) {
     }
   };
   const goToPlay = () => {
-    window.open(getGameURL(game), '_blank');
+    window.open(`${GAME_LIBRARY_URL}${game.url}`, '_blank');
   };
 
   return (
