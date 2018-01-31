@@ -1,70 +1,70 @@
 const initialEntities = {
-  games: []
-}
+  games: [],
+};
 
-function entities (state = initialEntities, action) {
+function entities(state = initialEntities, action) {
   if (action.response && action.response.entities) {
-    let newState = Object.assign({}, state)
+    let newState = Object.assign({}, state);
     for (let entity in action.response.entities) {
       if (action.response.entities.hasOwnProperty(entity)) {
         newState[entity] = {
-          ...action.response.entities[entity]
-        }
+          ...action.response.entities[entity],
+        };
       }
     }
-    return newState
+    return newState;
   }
-  return state
+  return state;
 }
 
-export function actionNames (entityName) {
-  entityName = entityName.toUpperCase()
-  const requestType = entityName + '_REQUEST'
-  const successType = entityName + '_SUCCESS'
-  const failureType = entityName + '_FAILURE'
+export function actionNames(entityName) {
+  entityName = entityName.toUpperCase();
+  const requestType = entityName + '_REQUEST';
+  const successType = entityName + '_SUCCESS';
+  const failureType = entityName + '_FAILURE';
 
-  return [requestType, successType, failureType]
+  return [requestType, successType, failureType];
 }
 
-function fetchEntity (entityName) {
-  let requestType
-  let successType
-  let failureType
-  ;[requestType, successType, failureType] = actionNames(entityName)
+function fetchEntity(entityName) {
+  let requestType;
+  let successType;
+  let failureType;
+  [requestType, successType, failureType] = actionNames(entityName);
 
-  let initialState = { isFetching: false, error: false, items: [] }
+  let initialState = { isFetching: false, error: false, items: [] };
 
   return (state = initialState, action) => {
     switch (action.type) {
       case requestType:
         return {
           ...state,
-          isFetching: true
-        }
+          isFetching: true,
+        };
       case successType: {
         return {
           isFetching: false,
           error: false,
-          items: action.response.result
-        }
+          items: action.response.result,
+        };
       }
       case failureType:
         return {
           ...state,
           isFetching: false,
-          error: true
-        }
+          error: true,
+        };
       default:
-        return state
+        return state;
     }
-  }
+  };
 }
 
 export const reducers = {
   entities,
-  fetchEntity
-}
+  fetchEntity,
+};
 
-export const selectors = {}
+export const selectors = {};
 
-export default entities
+export default entities;

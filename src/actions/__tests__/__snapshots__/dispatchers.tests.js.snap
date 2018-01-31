@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`dispatchers addToFavourites the game is not in favourites yet should dispatch the action to save a game as favourite 1`] = `
+exports[
+  `dispatchers addToFavourites the game is not in favourites yet should dispatch the action to save a game as favourite 1`
+] = `
 Array [
   Object {
     "shortName": "eightballpool",
@@ -9,7 +11,9 @@ Array [
 ]
 `;
 
-exports[`dispatchers fetchGames should dispatch the api call action to fetch games 1`] = `
+exports[
+  `dispatchers fetchGames should dispatch the api call action to fetch games 1`
+] = `
 Array [
   Object {
     "Call API": Object {
@@ -34,7 +38,9 @@ Array [
 ]
 `;
 
-exports[`dispatchers filterGamesBy should dispatch the action to change the filter value at the store 1`] = `
+exports[
+  `dispatchers filterGamesBy should dispatch the action to change the filter value at the store 1`
+] = `
 Array [
   Object {
     "filterBy": "e",
@@ -43,7 +49,9 @@ Array [
 ]
 `;
 
-exports[`dispatchers removeFromFavourites the game is in favourites should dispatch the action to remove a game as favourite 1`] = `
+exports[
+  `dispatchers removeFromFavourites the game is in favourites should dispatch the action to remove a game as favourite 1`
+] = `
 Array [
   Object {
     "shortName": "eightballpool",

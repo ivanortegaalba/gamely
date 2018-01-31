@@ -1,43 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<GameList/> has many games should render correctly 1`] = `
-<styled.div>
-  <styled.div
+<styled.section>
+  <Game
+    addToFavourites={[Function]}
+    game={
+      Object {
+        "hasBoosters": false,
+        "isFavourite": true,
+        "name": "8-Ball Pool",
+        "short": "eightballpool",
+        "tags": "",
+        "url": "/spel/sportspel/8-ball-pool/?language=sv",
+      }
+    }
     key="0"
-  >
-    <Game
-      addToFavourites={[Function]}
-      game={
-        Object {
-          "hasBoosters": false,
-          "isFavourite": true,
-          "name": "8-Ball Pool",
-          "short": "eightballpool",
-          "tags": "",
-          "url": "/spel/sportspel/8-ball-pool/?language=sv",
-        }
+    removeFromFavourites={[Function]}
+  />
+  <Game
+    addToFavourites={[Function]}
+    game={
+      Object {
+        "hasBoosters": false,
+        "name": "8-Ball Pool",
+        "short": "eightballpool",
+        "tags": "",
+        "url": "/spel/sportspel/8-ball-pool/?language=sv",
       }
-      removeFromFavourites={[Function]}
-    />
-  </styled.div>
-  <styled.div
+    }
     key="1"
-  >
-    <Game
-      addToFavourites={[Function]}
-      game={
-        Object {
-          "hasBoosters": false,
-          "name": "8-Ball Pool",
-          "short": "eightballpool",
-          "tags": "",
-          "url": "/spel/sportspel/8-ball-pool/?language=sv",
-        }
-      }
-      removeFromFavourites={[Function]}
-    />
-  </styled.div>
-</styled.div>
+    removeFromFavourites={[Function]}
+  />
+</styled.section>
 `;
 
-exports[`<GameList/> is empty should render correctly 1`] = `<styled.div />`;
+exports[`<GameList/> is empty should render correctly 1`] = `<styled.section />`;

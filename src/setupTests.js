@@ -1,4 +1,4 @@
-import 'jest-styled-components'
+import 'jest-styled-components';
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -14,9 +14,9 @@ global.mount = mount;
 const localStorageMock = {
   getItem: jest.fn(),
   setItem: jest.fn(),
-  clear: jest.fn()
-}
-global.localStorage = localStorageMock
+  clear: jest.fn(),
+};
+global.localStorage = localStorageMock;
 
 // Mock fetch
-global.fetch = require('jest-fetch-mock')
+global.fetch = require('jest-fetch-mock');

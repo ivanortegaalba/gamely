@@ -1,25 +1,24 @@
-import { FILTER_BY } from '../actions/ActionTypes'
+import { FILTER_BY } from '../actions/ActionTypes';
 
-const initialState = ''
+const initialState = '';
 
 const filterBy = (state = initialState, action) => {
   switch (action.type) {
     case FILTER_BY:
-      return action.filterBy
+      return action.filterBy;
     default:
-      return state
+      return state;
   }
-}
+};
 
-
-const getFilterBy = (state) => {
-  return state
-}
+const getFilterBy = state => {
+  return state;
+};
 
 export const reducers = {
-  filterBy
-}
+  filterBy,
+};
 export const selectors = {
-  getFilterBy
-}
-export default filterBy
+  getFilterBy,
+};
+export default filterBy;

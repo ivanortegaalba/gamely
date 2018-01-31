@@ -1,69 +1,78 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from '../PropTypes'
-import { Button, px2rems } from '../style/styled-components'
-import { GAME_LIBRARY_URL } from '../constants'
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from '../PropTypes';
+import { Button, px2rems } from '../style/styled-components';
+import { GAME_LIBRARY_URL } from '../constants';
 
-export function Game ({ game, addToFavourites, removeFromFavourites }) {
-  const getLogoUrl = ({ short }) => `${GAME_LIBRARY_URL}/images/games/${short}/${short}_60x60.gif`
-  const getGameURL = ({ url }) => `${GAME_LIBRARY_URL}${url}`
-  const onClickFavourite = () => {
-    if (!game.isFavourite) {
-      addToFavourites(game.short)
-    }
-    else {
-      removeFromFavourites(game.short)
-    }
-  }
-  const goToPlay = () => {window.open(getGameURL(game), '_blank')}
-  const Flex = styled.article`
+const FlexItem = styled.article`
   flex: 0 0 auto;
   padding-bottom: ${props => px2rems(props.theme.spacing['l'])};
   text-align: center;
-`
-  return <Flex>
-    <header>
-      {game.name}
-    </header>
-    <figure>
-      <img src={getLogoUrl(game)} alt={game.name} width='60' height='60' />
-    </figure>
-    <footer>
-      {game.isFavourite ? <Button
-          dataSpec={'remove-button'}
-          palette={'danger'}
+`;
+
+export function Game({ game, addToFavourites, removeFromFavourites }) {
+  const getLogoUrl = ({ short }) =>
+    `${GAME_LIBRARY_URL}/images/games/${short}/${short}_60x60.gif`;
+  const getGameURL = ({ url }) => `${GAME_LIBRARY_URL}${url}`;
+  const onClickFavourite = () => {
+    if (!game.isFavourite) {
+      addToFavourites(game.short);
+    } else {
+      removeFromFavourites(game.short);
+    }
+  };
+  const goToPlay = () => {
+    window.open(getGameURL(game), '_blank');
+  };
+
+  return (
+    <FlexItem>
+      <header>{game.name}</header>
+      <figure>
+        <img src={getLogoUrl(game)} alt={game.name} width="60" height="60" />
+      </figure>
+      <footer>
+        {game.isFavourite ? (
+          <Button
+            dataSpec={'remove-button'}
+            palette={'danger'}
+            size={'s'}
+            onClick={onClickFavourite}
+            margin={'0 xs 0 0'}
+            reverse
+          >
+            Remove
+          </Button>
+        ) : (
+          <Button
+            dataSpec={'save-button'}
+            palette={'primary'}
+            size={'s'}
+            onClick={onClickFavourite}
+            margin={'0 xs 0 0'}
+          >
+            Save
+          </Button>
+        )}
+        <Button
+          dataSpec={'play-button'}
           size={'s'}
-          onClick={onClickFavourite}
-          margin={'0 xs 0 0'}
-          reverse>
-          Remove
-        </Button>
-        : <Button
-          dataSpec={'save-button'}
-          palette={'primary'}
-          size={'s'}
-          onClick={onClickFavourite}
-          margin={'0 xs 0 0'}
+          margin={'0 0 0 xs'}
+          onClick={goToPlay}
+          reverse={true}
         >
-          Save
-        </Button>}
-      <Button
-        dataSpec={'play-button'}
-        size={'s'}
-        margin={'0 0 0 xs'}
-        onClick={goToPlay}
-        reverse={true}>
-        Play
-      </Button>
-    </footer>
-  </Flex>
+          Play
+        </Button>
+      </footer>
+    </FlexItem>
+  );
 }
 
 Game.propTypes = {
   game: PropTypes.game.isRequired,
   addToFavourites: PropTypes.func.isRequired,
-  removeFromFavourites: PropTypes.func.isRequired
-}
-Game.defaultProps = {}
+  removeFromFavourites: PropTypes.func.isRequired,
+};
+Game.defaultProps = {};
 
-export default Game
+export default Game;

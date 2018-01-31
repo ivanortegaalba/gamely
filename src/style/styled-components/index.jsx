@@ -1,15 +1,15 @@
-export { theme } from './theme'
+export { theme } from './theme';
 
 // Components
-export { Header } from './components/Header'
-export { Button } from './components/Button'
+export { Header } from './components/Header';
+export { Button } from './components/Button';
 
 // Elements
-export {H1, H2, H3, H4, H5, H6} from './elements/Headings'
+export { H1, H2, H3, H4, H5, H6 } from './elements/Headings';
 
 // Settings
-export { colors } from './settings/colors'
-export { fonts } from './settings/fonts'
+export { colors } from './settings/colors';
+export { fonts } from './settings/fonts';
 
 // Tools
-export { px2rems, palette, prop, key } from './tools/functions'
+export { px2rems, palette, prop, key } from './tools/functions';

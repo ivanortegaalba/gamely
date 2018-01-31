@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Game/> represent a favourite game should render correctly 1`] = `
-<article>
+<styled.article>
+  <header>
+    8-Ball Pool
+  </header>
   <figure>
     <img
-      alt="The Pulpit Rock"
+      alt="8-Ball Pool"
       height="60"
       src="http://royal1.midasplayer.com//images/games/eightballpool/eightballpool_60x60.gif"
       width="60"
     />
-    <figcaption>
-      8-Ball Pool
-    </figcaption>
   </figure>
   <footer>
     <styled.button
       dataSpec="remove-button"
-      margin="0 s 0 0"
+      margin="0 xs 0 0"
       onClick={[Function]}
       palette="danger"
       reverse={true}
@@ -35,21 +35,21 @@ exports[`<Game/> represent a favourite game should render correctly 1`] = `
       Play
     </styled.button>
   </footer>
-</article>
+</styled.article>
 `;
 
 exports[`<Game/> represent a no favourite game should render correctly 1`] = `
-<article>
+<styled.article>
+  <header>
+    8-Ball Pool
+  </header>
   <figure>
     <img
-      alt="The Pulpit Rock"
+      alt="8-Ball Pool"
       height="60"
       src="http://royal1.midasplayer.com//images/games/eightballpool/eightballpool_60x60.gif"
       width="60"
     />
-    <figcaption>
-      8-Ball Pool
-    </figcaption>
   </figure>
   <footer>
     <styled.button
@@ -73,5 +73,5 @@ exports[`<Game/> represent a no favourite game should render correctly 1`] = `
       Play
     </styled.button>
   </footer>
-</article>
+</styled.article>
 `;
